@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-# (c) 2022, Adam Miller (maxamillion@gmail.com)
+# (c) 2022, Adam Miller (admiller@redhat.com)
 # MIT License (see LICENSE or https://opensource.org/licenses/MIT)
 
 from __future__ import absolute_import, division, print_function
@@ -11,7 +11,7 @@ __metaclass__ = type
 DOCUMENTATION = """
 ---
 module: images_info
-short_description: Obtain information about one or many RHEL for Edge Images on console.redhat.com 
+short_description: Obtain information about one or many RHEL for Edge Images on console.redhat.com
 description:
   - This module obtains information about one or many RHEL for Edge Images on console.redhat.com, with filter options.
 version_added: "0.1.0"
@@ -30,7 +30,8 @@ notes:
   - You may provide many filters and they will all be applied, except for C(id)
     as that will return only the Rule identified by the unique ID provided.
 
-author: Adam Miller @maxamillion 
+author:
+  - Adam Miller (@maxamillion)
 """
 
 
@@ -40,7 +41,7 @@ RETURN = """
 
 EXAMPLES = """
 - name: Get information about the Rule named "Custom Company DDoS Rule"
-  maxamillion.fleetmanager.images_info
+  consoledot.edgemanagement.images_info:
     id: 1024
   register: image1024_info
 
@@ -53,7 +54,7 @@ from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils._text import to_text
 
 from ansible.module_utils.six.moves.urllib.parse import quote
-from ansible_collections.maxamillion.fleetmanager.plugins.module_utils.fleetmanager import (
+from ansible_collections.consoledot.edgemanagement.plugins.module_utils.edgemanagement import (
     ConsoleDotRequest,
 )
 

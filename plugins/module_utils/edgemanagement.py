@@ -1,7 +1,6 @@
-#!usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# (c) 2022, Adam Miller (maxamillion@gmail.com)
+# (c) 2022, Adam Miller (admiller@redhat.com)
 # MIT License (see LICENSE or https://opensource.org/licenses/MIT)
 
 from __future__ import absolute_import, division, print_function
@@ -16,6 +15,7 @@ from ansible.module_utils._text import to_text
 
 import json
 
+
 class ConsoleDotRequest(object):
     def __init__(self, module, headers=None):
 
@@ -26,10 +26,7 @@ class ConsoleDotRequest(object):
         # FIXME - make use of handle_httperror(self, exception) where applicable
         #   https://docs.ansible.com/ansible/latest/network/dev_guide/developing_plugins_network.html#developing-plugins-httpapi
 
-        code, response = self.connection.send_request(
-            method, path, data=data
-        )
-
+        code, response = self.connection.send_request(method, path, data=data)
 
         # if code == 500:
         if code not in [200, 201]:
